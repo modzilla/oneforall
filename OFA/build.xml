@@ -18,7 +18,7 @@
 	</target>	
 	<target name="hudson" description="create Jar file">
 		<property environment="env" />
-		<jar jarfile="${jar.dir}/ofa-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="*" />
+		<jar jarfile="${jar.dir}/ofa-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
 	</target>
 	<target name="clean" description="tidy up">
 		<delete dir="${doc.dir}" />
