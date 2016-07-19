@@ -18,10 +18,11 @@
 	</target>	
 	<target name="hudson" description="create Jar file">
 		<property environment="env" />
-		<jar jarfile="${jar.dir}/ofa-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="*.class" />
+		<jar jarfile="${jar.dir}/ofa-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="*" />
 	</target>
 	<target name="clean" description="tidy up">
 		<delete dir="${doc.dir}" />
+		<delete dir="${build.dir}" />
 	</target>
 	  <target name="doc" depends="init" description="generate documentation">
 	    <javadoc sourcepath="${source.dir}" destdir="${doc.dir}"/>
