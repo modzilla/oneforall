@@ -3,6 +3,6 @@
 <project name="OFA" default="CreateJar">
   <target name="CreateJar" description="Create Jar file">
         <property environment="env" />
-        <jar jarfile="ofa-${env.BUILD_NUMBER}.jar" basedir="." includes="*.class" />
+        <jar jarfile="ofa-#n${env.BUILD_NUMBER}.jar" basedir="." includes="*.class" />
   </target>
 </project>
