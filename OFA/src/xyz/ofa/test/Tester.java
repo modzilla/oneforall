@@ -34,8 +34,7 @@ public class Tester {
 		assertArrayEquals(lArr, Numbers.getBytes(Numbers.longFromBytes(lArr)));
 		assertArrayEquals(dArr, Numbers.getBytes(Numbers.doubleFromBytes(dArr)));
 		assertArrayEquals(fArr, Numbers.getBytes(Numbers.floatFromBytes(fArr)));
-		
-		assertEquals("[Double]40 7A 4B 0A 3D 70 A3 D7", Numbers.hexNumberDump(420.69));		
+			
 	}
 	@Test
 	public void testText() throws Exception{

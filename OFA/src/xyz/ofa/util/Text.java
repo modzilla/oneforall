@@ -99,7 +99,7 @@ public class Text {
 	}
 
 	public static String fillRight(String text, int length) {
-		return fillRight(text,length,' ');
+		return fillRight(text, length, ' ');
 	}
 
 	public static byte[] swapEncoding(byte[] text, Charset input, Charset output) throws UnsupportedEncodingException {
