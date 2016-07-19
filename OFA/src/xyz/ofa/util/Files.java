@@ -10,6 +10,13 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
 public class Files {
+	/**
+	 * Synchronously Reads a whole File returning its Content in the given encoding
+	 * @param path The path to the File
+	 * @param encoding The Encoding of the File
+	 * @return Content of the File
+	 * @throws IOException
+	 */
 	public static String readFile(String path,Charset encoding) throws IOException{		
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path),encoding));
 		String line = null;
@@ -20,6 +27,13 @@ public class Files {
 		br.close();
 		return sb.toString();
 	}
+	/**
+	 * Writes a given String to a new or existing file
+	 * @param data Your data to write
+	 * @param path Path to the file
+	 * @param encoding Your output encoding
+	 * @throws IOException
+	 */
 	public static void writeFile(String data, String path, Charset encoding) throws IOException{
 		BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path),encoding));
 		char[][] rdata = Misc.splitEqual(data, 100);
