@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<!-- Configuration of the Ant build system to generate a Jar file --> 
+<project name="OFA" default="CreateJar">
+  <target name="CreateJar" description="Create Jar file">
+        <property environment="env" />
+        <jar jarfile="ofa-${env.BUILD_NUMBER}.jar" basedir="." includes="*.class" />
+  </target>
+</project>
