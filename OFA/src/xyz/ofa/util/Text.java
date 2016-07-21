@@ -342,4 +342,5 @@ public class Text {
 	public static String generateLoremIpsum(int length, boolean newlines) {
 		return repeatFill(newlines ? LOREM_IPSUM : LOREM_IPSUM.replace("\n", ""), length);
 	}
+	
 }
