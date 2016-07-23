@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 
-public class Files {
+public abstract class Files {
 	/**
 	 * Synchronously Reads a whole File returning its Content in the given encoding
 	 * @param path The path to the File

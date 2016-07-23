@@ -1,6 +1,6 @@
 package xyz.ofa.util;
 
-public class Misc {
+public abstract class Misc {
 	/**
 	 * Splits a given String into equal sized chunks
 	 * @param sdata String data

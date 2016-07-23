@@ -6,7 +6,7 @@ package xyz.ofa.science.util;
  * <b>A Temperature-Oriented Utility Class</b>
  *
  */
-public class Temperatures {
+public abstract class Temperatures {
 
 	private static final float FACTOR_KELVIN = 273.15f;
 	private static final float FACTOR_FAHRENHEIT = (float) 9 / (float) 5;

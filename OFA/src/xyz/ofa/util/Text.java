@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * @author Kenny Kropp This is a general Purpose Text modification File
  */
-public class Text {
+public abstract class Text {
 
 	public static final Charset UTF8 = Charset.forName("UTF-8");
 	public static final Charset ASCII = Charset.forName("US-ASCII");

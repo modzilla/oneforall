@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 
 import xyz.ofa.error.NotEnoughBytesException;
 
-public class Numbers {
+public abstract class Numbers {
 	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
 	// Byte Reversing
