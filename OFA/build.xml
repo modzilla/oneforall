@@ -14,7 +14,7 @@
 		<mkdir dir="${jar.dir}"/>
 	  </target>
 	<target name="compile" depends="init" description="compile files">
-			<javac srcdir="${source.dir}" destdir="${build.dir}"/>	
+			<javac includeatruntime="false" srcdir="${source.dir}" destdir="${build.dir}"/>	
 	</target>	
 	<target name="hudson" description="create Jar file">
 		<property environment="env" />
