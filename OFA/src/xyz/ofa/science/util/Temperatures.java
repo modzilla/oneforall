@@ -12,132 +12,132 @@ public class Temperatures {
 	private static final float FACTOR_FAHRENHEIT = (float) 9 / (float) 5;
 
 	/**
-	 * °C to °K
+	 * degC to degK
 	 * 
 	 * @param temp
-	 *            Temperature in °C
-	 * @return Temperature in °K
+	 *            Temperature in degC
+	 * @return Temperature in degK
 	 */
 	public static float celsiusToKelvin(float temp) {
 		return temp + FACTOR_KELVIN;
 	}
 
 	/**
-	 * °C to °K
+	 * degC to degK
 	 * 
 	 * @param temp
-	 *            Temperature in °C
-	 * @return Temperature in °K
+	 *            Temperature in degC
+	 * @return Temperature in degK
 	 */
 	public static double celsiusToKelvin(double temp) {
 		return temp + FACTOR_KELVIN;
 	}
 
 	/**
-	 * °K to °C
+	 * degK to degC
 	 * 
 	 * @param temp
-	 *            Temperature in °K
-	 * @return Temperature in °C
+	 *            Temperature in degK
+	 * @return Temperature in degC
 	 */
 	public static float kelvinToCelsius(float temp) {
 		return temp - FACTOR_KELVIN;
 	}
 
 	/**
-	 * °K to °C
+	 * degK to degC
 	 * 
 	 * @param temp
-	 *            Temperature in °K
-	 * @return Temperature in °C
+	 *            Temperature in degK
+	 * @return Temperature in degC
 	 */
 	public static double kelvinToCelsius(double temp) {
 		return temp - FACTOR_KELVIN;
 	}
 
 	/**
-	 * °F to °C
+	 * degF to degC
 	 * 
 	 * @param temp
-	 *            Temperature in °F
-	 * @return Temperature in °C
+	 *            Temperature in degF
+	 * @return Temperature in degC
 	 */
 	public static float fahrenheitToCelsius(float temp) {
 		return (temp - 32f) / 1.8f;
 	}
 
 	/**
-	 * °F to °C
+	 * degF to degC
 	 * 
 	 * @param temp
-	 *            Temperature in °F
-	 * @return Temperature in °C
+	 *            Temperature in degF
+	 * @return Temperature in degC
 	 */
 	public static double fahrenheitToCelsius(double temp) {
 		return (temp - 32) / 1.8;
 	}
 
 	/**
-	 * °C to °F
+	 * degC to degF
 	 * 
 	 * @param temp
-	 *            Temperature in °C
-	 * @return Temperature in °F
+	 *            Temperature in degC
+	 * @return Temperature in degF
 	 */
 	public static float celsiusToFahrenheit(float temp) {
 		return (temp * FACTOR_FAHRENHEIT) + 32f;
 	}
 
 	/**
-	 * °C to °F
+	 * degC to degF
 	 * 
 	 * @param temp
-	 *            Temperature in °C
-	 * @return Temperature in °F
+	 *            Temperature in degC
+	 * @return Temperature in degF
 	 */
 	public static double celsiusToFahrenheit(double temp) {
 		return (temp * FACTOR_FAHRENHEIT) + 32;
 	}
 
 	/**
-	 * °F to °K
+	 * degF to degK
 	 * 
 	 * @param temp
-	 *            Temperature in °F
-	 * @return Temperature in °K
+	 *            Temperature in degF
+	 * @return Temperature in degK
 	 */
 	public static float fahrenheitToKelvin(float temp) {
 		return ((temp - 32f) / 1.8f) - FACTOR_KELVIN;
 	}
 
 	/**
-	 * °F to °K
+	 * degF to degK
 	 * 
 	 * @param temp
-	 *            Temperature in °F
-	 * @return Temperature in °K
+	 *            Temperature in degF
+	 * @return Temperature in degK
 	 */
 	public static double fahrenheitToKelvin(double temp) {
 		return ((temp - 32) / 1.8) - FACTOR_KELVIN;
 	}
 
 	/**
-	 * °K to °F
+	 * degK to degF
 	 * 
 	 * @param temp
-	 *            Temperature in °K
-	 * @return Temperature in °F
+	 *            Temperature in degK
+	 * @return Temperature in degF
 	 */
 	public static float kelvinToFahrenheit(float temp) {
 		return 1.8f * (temp - FACTOR_KELVIN) + 32f;
 	}
 
 	/**
-	 * °K to °F
+	 * degK to degF
 	 * 
 	 * @param temp
-	 *            Temperature in °K
-	 * @return Temperature in °F
+	 *            Temperature in degK
+	 * @return Temperature in degF
 	 */
 	public static double kelvinToFahrenheit(double temp) {
 		return 1.8 * (temp - FACTOR_KELVIN) + 32;

@@ -19,8 +19,8 @@ public class Element {
 	 * @param type Type of the element see {@link ElementType}
 	 * @param weight The molecular weight of the Element (in atomic mass units)
 	 * @param density The density of the Element (in g/cm3)
-	 * @param melt The melting temperature of the Element (in °K)
-	 * @param boil The boiling temperature of the Element (in °K)
+	 * @param melt The melting temperature of the Element (in degK)
+	 * @param boil The boiling temperature of the Element (in degK)
 	 * @param heatcap The specific Heat-Capacity of the Element (in J/g*K)
 	 * @param negativity The Electronegativity of the Element
 	 * @param abundance The abundance of the Element (in mg/kg)
@@ -75,14 +75,14 @@ public class Element {
 		return density;
 	}
 	/**
-	 * Get the melting point (in °K)
+	 * Get the melting point (in degK)
 	 * @return The melting point
 	 */
 	public float getMeltingPoint() {
 		return melt;
 	}
 	/**
-	 * Get the boiling point (in °K)
+	 * Get the boiling point (in degK)
 	 * @return The boiling point
 	 */
 	public float getBoilingPoint() {
@@ -122,8 +122,8 @@ public class Element {
 		sb.append("Type: " + type + "\n");
 		sb.append("Weight: " + weight + "\n");
 		sb.append("Density: " + density + "\n");
-		sb.append("Melt (°K): " + melt + "\n");
-		sb.append("Boil (°K): " + boil + "\n");
+		sb.append("Melt (degK): " + melt + "\n");
+		sb.append("Boil (degK): " + boil + "\n");
 		sb.append("Heat Capacity: " + heatcap + "\n");
 		sb.append("Electronegativity: " + negativity + "\n");
 		sb.append("Abundance: " + abundance + "\n");		
