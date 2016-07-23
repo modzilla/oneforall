@@ -1,22 +1,25 @@
-package xyz.ofa.physics;
+package xyz.ofa.science.element;
 
-import static xyz.ofa.physics.ElementType.Actinide;
-import static xyz.ofa.physics.ElementType.AlkaliMetal;
-import static xyz.ofa.physics.ElementType.AlkalineEarthMetal;
-import static xyz.ofa.physics.ElementType.Halogen;
-import static xyz.ofa.physics.ElementType.Lanthanide;
-import static xyz.ofa.physics.ElementType.Metalloid;
-import static xyz.ofa.physics.ElementType.NobleGas;
-import static xyz.ofa.physics.ElementType.None;
-import static xyz.ofa.physics.ElementType.OtherNonMetal;
-import static xyz.ofa.physics.ElementType.PostTransitionMetal;
-import static xyz.ofa.physics.ElementType.TransitionMetal;
+import static xyz.ofa.science.element.ElementType.Actinide;
+import static xyz.ofa.science.element.ElementType.AlkaliMetal;
+import static xyz.ofa.science.element.ElementType.AlkalineEarthMetal;
+import static xyz.ofa.science.element.ElementType.Halogen;
+import static xyz.ofa.science.element.ElementType.Lanthanide;
+import static xyz.ofa.science.element.ElementType.Metalloid;
+import static xyz.ofa.science.element.ElementType.NobleGas;
+import static xyz.ofa.science.element.ElementType.None;
+import static xyz.ofa.science.element.ElementType.OtherNonMetal;
+import static xyz.ofa.science.element.ElementType.PostTransitionMetal;
+import static xyz.ofa.science.element.ElementType.TransitionMetal;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import xyz.ofa.error.NoSuchElementException;
-
+/**
+ * @author Kenny Kropp
+ *	A PeriodicTable containing all the Elements
+ */
 public class PeriodicTable {
 	private static PeriodicTable instance = null;
 	private List<Element> elements;
@@ -136,31 +139,64 @@ public class PeriodicTable {
 			2.7f, 0.000000000003f, 0.00000000003f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f,
 			0f, 0f, 0f, 0f, 0f, 0f, 0f, };
 
+	/**
+	 * A Periodic Table containing all Elements
+	 */
 	private PeriodicTable() {
 		elements = new LinkedList<>();
 		for (int i = 0; i < ELEMENT_NAMES.length; i++) {
-			elements.add(new Element(ELEMENT_NAMES[i], ELEMENT_SYMBOLS[i], ELEMENT_ATOMIC_WEIGHTS[i],
-					ELEMENT_DENSITIES[i], ELEMENT_MELTING_POINTS[i], ELEMENT_BOILING_POINTS[i],
-					ELEMENT_HEAT_CAPACITY[i], ELEMENT_ELECTRONEGATIVITY[i], ELEMENT_ABUNDANCE[i]));
+			elements.add(
+					new Element(i, ELEMENT_NAMES[i], ELEMENT_SYMBOLS[i], ELEMENT_TYPES[i], ELEMENT_ATOMIC_WEIGHTS[i],
+							ELEMENT_DENSITIES[i], ELEMENT_MELTING_POINTS[i], ELEMENT_BOILING_POINTS[i],
+							ELEMENT_HEAT_CAPACITY[i], ELEMENT_ELECTRONEGATIVITY[i], ELEMENT_ABUNDANCE[i]));
 		}
 	}
 
+	/**
+	 * Singleton Constructor for the PeriodicTable
+	 * 
+	 * @return A PeriodicTable instance
+	 */
 	public static PeriodicTable getInstance() {
 		if (instance == null)
 			instance = new PeriodicTable();
 		return instance;
 	}
 
+	/**
+	 * Get all the Elements as Objects
+	 * 
+	 * @return All Elements
+	 */
 	public List<Element> getAllElements() {
 		return elements;
 	}
 
+	/**
+	 * Gets an Element by its Atomic Number
+	 * 
+	 * @param number
+	 *            The Atomic Number
+	 * @return The desired Element
+	 * @throws NoSuchElementException
+	 *             Thrown if the Element doesn't exist
+	 */
 	public Element getElementByNumber(int number) throws NoSuchElementException {
 		if (number > elements.size())
 			throw new NoSuchElementException(number);
 		return elements.get(number);
 	}
 
+	/**
+	 * Gets the Atomic Number of an Element by its Name
+	 * 
+	 * @param name
+	 *            The Element name (case-insensitive)
+	 * @return The Atomic Number of the Element
+	 * @throws NoSuchElementException
+	 *             The provided Name is not an Element (check spelling, see
+	 *             {@link PeriodicTable#ELEMENT_NAMES})
+	 */
 	public static int atomicNumberForName(String name) throws NoSuchElementException {
 		for (int i = 0; i < ELEMENT_NAMES.length; i++) {
 			if (ELEMENT_NAMES[i].equalsIgnoreCase(name)) {
@@ -170,12 +206,31 @@ public class PeriodicTable {
 		throw new NoSuchElementException(name);
 	}
 
+	/**
+	 * Gets the type of the Element for a provided Atomic Number
+	 * 
+	 * @param number
+	 *            The given atomic Number
+	 * @return The ElementType of the Element
+	 * @throws NoSuchElementException
+	 *             Thrown if the Element does not exist
+	 */
 	public static ElementType typeForAtomicNumber(int number) throws NoSuchElementException {
 		if (number < 0 || number >= ELEMENT_NAMES.length)
 			throw new NoSuchElementException(number);
 		return ELEMENT_TYPES[number];
 	}
 
+	/**
+	 * Gets the Atomic number for a given Symbol
+	 * 
+	 * @param symbol
+	 *            The Atomic Symbol (case-insensitive)
+	 * @return The Atomic Number of the Element
+	 * @throws NoSuchElementException
+	 *             Thrown if no Element matching the given Symbol has been found
+	 *             (see {@link PeriodicTable#ELEMENT_SYMBOLS}
+	 */
 	public static int atomicNumberForSymbol(String symbol) throws NoSuchElementException {
 		for (int i = 0; i < ELEMENT_SYMBOLS.length; i++) {
 			if (ELEMENT_SYMBOLS[i].equalsIgnoreCase(symbol)) {
@@ -185,12 +240,30 @@ public class PeriodicTable {
 		throw new NoSuchElementException(symbol);
 	}
 
+	/**
+	 * Gets the name to a Atomic Number
+	 * 
+	 * @param number
+	 *            The Atomic Number
+	 * @return The Name of the Element
+	 * @throws NoSuchElementException
+	 *             Thrown if no Element with the Atomic Number exists
+	 */
 	public static String nameForAtomicNumber(int number) throws NoSuchElementException {
 		if (number < 0 || number >= ELEMENT_NAMES.length)
 			throw new NoSuchElementException(number);
 		return ELEMENT_NAMES[number];
 	}
 
+	/**
+	 * Get the Symbol for a given Atomic Number
+	 * 
+	 * @param number
+	 *            The given Atomic Number
+	 * @return The Symbol of the Element
+	 * @throws NoSuchElementException
+	 *             Thrown if no Element with the Atomic Number exists
+	 */
 	public static String symbolForAtomicNumber(int number) throws NoSuchElementException {
 		if (number < 0 || number >= ELEMENT_NAMES.length)
 			throw new NoSuchElementException(number);
