@@ -23,7 +23,6 @@
 	<target name="clean" description="tidy up">
 		<delete dir="${doc.dir}" />
 		<delete dir="${build.dir}" />
-		<delete dir="${jar.dir}" />
 	</target>
 	  <target name="doc" depends="init" description="generate documentation">
 	    <javadoc sourcepath="${source.dir}" destdir="${doc.dir}"/>
