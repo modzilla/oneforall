@@ -16,7 +16,7 @@
 	<target name="compile" depends="init" description="compile files">
 			<javac  srcdir="${source.dir}" destdir="${build.dir}"/>	
 	</target>	
-	<target name="hudson" description="create Jar file" depends="doc">
+	<target name="hudson" description="create Jar file" depends="compile">
 		<property environment="env" />
 		<jar jarfile="${jar.dir}/ofa-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
 	</target>
