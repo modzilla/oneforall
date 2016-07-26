@@ -13,7 +13,8 @@
 		<delete dir="${main.jar.dir}" />
 		<delete dir="${test.report.dir}" />
 	</target>
-	<target name="init" depends="clean">
+	
+	<target name="init" >
 		<mkdir dir="${main.build.dir}"/>
 		<mkdir dir="${test.build.dir}"/>
 		<mkdir dir="${main.jar.dir}"/>
