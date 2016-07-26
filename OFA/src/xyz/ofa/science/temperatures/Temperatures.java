@@ -1,4 +1,4 @@
-package xyz.ofa.science.util;
+package xyz.ofa.science.temperatures;
 
 /**
  * 
