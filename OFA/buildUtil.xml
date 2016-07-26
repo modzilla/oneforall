@@ -17,6 +17,7 @@
 		<javac srcdir="${source.dir}" destdir="${build.dir}">
 			<include name="xyz/ofa/util/**" />
 			<include name="xyz/ofa/error/**" />
+			<exclude name="xyz/ofa/junit/**" />
 		</javac>
 	</target>
 	<target name="artifact" description="create Jar file" depends="compile">

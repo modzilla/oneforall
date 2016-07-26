@@ -16,6 +16,7 @@
 	<target name="compile" depends="init" description="compile files">
 		<javac srcdir="${source.dir}" destdir="${build.dir}">
 			<include name="xyz/ofa/units/**" />
+			<exclude name="xyz/ofa/junit/**" />
 		</javac>
 	</target>
 	<target name="artifact" description="create Jar file" depends="compile">
