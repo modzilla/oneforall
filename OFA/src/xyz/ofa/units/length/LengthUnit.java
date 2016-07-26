@@ -1,4 +1,4 @@
-package xyz.ofa.science.lengths;
+package xyz.ofa.units.length;
 
 /**
  * 
@@ -39,7 +39,7 @@ public enum LengthUnit {
 	 * @return True if they are in the same System
 	 */
 	public boolean isSameSystem(LengthUnit i){
-		return i == this;
+		return i.system == this.system;
 	}
 	/**
 	 * Converts this unit to the Standard unit
@@ -63,7 +63,7 @@ public enum LengthUnit {
 	 * @return The Value in this format
 	 */
 	public double fromStandard(double val){
-		return val * refToStandard;
+		return val / refToStandard;
 	}
 	/**
 	 * Converts a value in standard to this value
@@ -71,7 +71,7 @@ public enum LengthUnit {
 	 * @return The Value in this format
 	 */
 	public float fromStandard(float val){
-		return val * (float)refToStandard;
+		return val / (float)refToStandard;
 	}	
 	/**
 	 * Check if this unit is in the metric system
@@ -109,7 +109,7 @@ public enum LengthUnit {
      * @return Length in meters
      */
     public static float inchToMeter(float val){
-    	return val * 39.37008f;
+    	return val * 0.0254f;
     }
     /**
      * Approximate Conversion from Inches to Meters
@@ -117,7 +117,7 @@ public enum LengthUnit {
      * @return Length in meters
      */
     public static double inchToMeter(double val){
-    	return val * 39.37008;
+    	return val * 0.0254;
     }
 	private enum System{
 		Metric,Imperial;

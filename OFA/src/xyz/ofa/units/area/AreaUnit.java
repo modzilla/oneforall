@@ -1,4 +1,4 @@
-package xyz.ofa.science.areas;
+package xyz.ofa.units.area;
 
 public enum AreaUnit {
 	Barn(System.Metric,10e-28),
@@ -69,7 +69,7 @@ public enum AreaUnit {
 	 * @return True if they are in the same System
 	 */
 	public boolean isSameSystem(AreaUnit i){
-		return i == this;
+		return i.system == this.system;
 	}
 	/**
 	 * Converts this unit to the Standard unit
@@ -93,7 +93,7 @@ public enum AreaUnit {
 	 * @return The Value in this format
 	 */
 	public double fromStandard(double val){
-		return val * refToStandard;
+		return val / refToStandard;
 	}
 	/**
 	 * Converts a value in standard to this value
@@ -101,7 +101,7 @@ public enum AreaUnit {
 	 * @return The Value in this format
 	 */
 	public float fromStandard(float val){
-		return val * (float)refToStandard;
+		return val / (float)refToStandard;
 	}	
 	/**
 	 * Check if this unit is in the metric system

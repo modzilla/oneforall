@@ -1,4 +1,4 @@
-package xyz.ofa.science.temperatures;
+package xyz.ofa.units.temperature;
 
 /**
  * 
@@ -6,7 +6,7 @@ package xyz.ofa.science.temperatures;
  * <b>A Temperature-Oriented Utility Class</b>
  *
  */
-public abstract class Temperatures {
+public abstract class Temperature {
 
 	private static final float FACTOR_KELVIN = 273.15f;
 	private static final float FACTOR_FAHRENHEIT = (float) 9 / (float) 5;
