@@ -23,12 +23,6 @@
 		<mkdir dir="${test.report.dir}"/>
 	</target>
 
-	<path id="classpath.test">
-		<pathelement location="lib/junit.jar" />
-		<pathelement location="lib/org.hamcrest.core.jar" />
-		<pathelement location="${main.build.dir}" />
-	</path>
-
 	<target name="compile" depends="init">
 		<mkdir dir="${main.build.dir}" />
 		<javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false" />
@@ -36,7 +30,7 @@
 
 	<target name="artifact" depends="compile">
 		<property environment="env" />
-		<jar jarfile="${jar.dir}/ofa-full-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
+		<jar jarfile="${main.jar.dir}/ofa-full-#n${env.BUILD_NUMBER}.jar" basedir="${main.build.dir}" includes="**" />
 	</target>
 
 	<target name="doc">
