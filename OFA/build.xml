@@ -1,9 +1,10 @@
 <project name="ofa">
+	<property name="build.dir" value="build" />
 	<property name="main.build.dir" value="build/main" />
 	<property name="main.src.dir" value="src/ofa" />
 	<property name="test.build.dir" value="build/test" />
 	<property name="test.src.dir" value="src/test" />
-	<property name="main.jar.dir" value="jar/main" />
+	<property name="main.jar.dir" value="jar" />
 	<property name="main.doc.dir" value="doc" />
 	<property name="test.report.dir" value="report"/>
 
@@ -15,6 +16,7 @@
 	</target>
 	
 	<target name="init" >
+		<mkdir dir="${build.dir}"/>
 		<mkdir dir="${main.build.dir}"/>
 		<mkdir dir="${test.build.dir}"/>
 		<mkdir dir="${main.jar.dir}"/>
