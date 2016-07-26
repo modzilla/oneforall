@@ -1,9 +1,9 @@
 <project name="ofa" >
 	<property name="build.dir" value="build" />
 	<property name="main.build.dir" value="bin" />
-	<property name="main.src.dir" value="src/ofa" />
+	<property name="main.src.dir" value="src/xyz/ofa" />
 	<property name="test.build.dir" value="test" />
-	<property name="test.src.dir" value="src/test" />
+	<property name="test.src.dir" value="src/xyz/test" />
 	<property name="main.jar.dir" value="jar" />
 	<property name="main.doc.dir" value="doc" />
 	<property name="test.report.dir" value="report"/>
