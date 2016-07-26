@@ -1,7 +1,7 @@
 /**
  * 
  */
-package xyz.ofa.junit.science;
+package xyz.test;
 
 import static org.junit.Assert.*;
 
