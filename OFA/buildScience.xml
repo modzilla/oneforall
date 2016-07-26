@@ -15,8 +15,10 @@
 	  </target>
 	<target name="compile" depends="init" description="compile files">
 			<javac srcdir="${source.dir}" destdir="${build.dir}">	
-				<include name="xyz/ofa/science"/>
-				<include name="xyz/ofa/error"/>			
+				<fileset dir="${source.dir}">
+					<include name="xyz/ofa/science/**"/>
+					<include name="xyz/ofa/error/**"/>
+				</fileset>		
 			</javac>
 	</target>	
 	<target name="artifact" description="create Jar file" depends="compile">
