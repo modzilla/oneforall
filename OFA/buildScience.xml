@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- Configuration of the Ant build system to generate a Jar file -->
-<project name="OFA" default="hudson">
+<project name="OFA" default="artifact">
 	<description>The one-for-all Java library</description>
 	
 	<property name="doc.dir" location="doc" />
@@ -14,11 +14,14 @@
 		<mkdir dir="${jar.dir}"/>
 	  </target>
 	<target name="compile" depends="init" description="compile files">
-			<javac  srcdir="${source.dir}" destdir="${build.dir}"/>	
+			<javac srcdir="${source.dir}" destdir="${build.dir}">	
+				<include name="src/xyz/ofa/science"/>
+				<include name="src/xyz/ofa/error"/>			
+			</javac>
 	</target>	
-	<target name="hudson" description="create Jar file" depends="compile">
+	<target name="artifact" description="create Jar file" depends="compile">
 		<property environment="env" />
-		<jar jarfile="${jar.dir}/ofa-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
+		<jar jarfile="${jar.dir}/ofa-science-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
 	</target>
 	<target name="clean" description="tidy up">
 		<delete dir="${doc.dir}" />
