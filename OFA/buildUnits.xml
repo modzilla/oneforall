@@ -20,7 +20,7 @@
 	</target>
 	<target name="artifact" description="create Jar file" depends="compile">
 		<property environment="env" />
-		<jar jarfile="${jar.dir}/ofa-util-#n${env.BUILD_NUMBER}.jar"
+		<jar jarfile="${jar.dir}/ofa-units-#n${env.BUILD_NUMBER}.jar"
 			basedir="${build.dir}" includes="**" />
 	</target>
 	<target name="clean" description="tidy up">
