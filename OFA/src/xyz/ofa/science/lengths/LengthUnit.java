@@ -11,13 +11,13 @@ public enum LengthUnit {
 	Millimeter (System.Metric,10e-3),
 	Centimeter (System.Metric,10e-2),
 	Decimeter (System.Metric,10),
-	Meter (System.Metric, 1),
+	Meter (System.Metric, 1),			//Standard
 	Kilometer (System.Metric,10e3),
 	Megameter (System.Metric,10e6),
 	Gigameter (System.Metric,10e9),
 	
 	Thou (System.Imperial,10e-3),
-	Inch (System.Imperial,1),
+	Inch (System.Imperial,1),			//Standard
 	Foot (System.Imperial,12),
 	Yard (System.Imperial,36),
 	Mile (System.Imperial,63360);
