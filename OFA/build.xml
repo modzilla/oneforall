@@ -34,30 +34,11 @@
 		<javac srcdir="${main.src.dir}" destdir="${main.build.dir}" includeantruntime="false" />
 	</target>
 
-	<target name="test-compile" depends="compile">
-		<mkdir dir="${test.build.dir}" />
-		<javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
-			<classpath refid="classpath.test" />
-		</javac>
-	</target>
-
 	<target name="artifact" depends="compile">
 		<property environment="env" />
 		<jar jarfile="${jar.dir}/ofa-full-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
 	</target>
 
-	<target name="test" depends="test-compile">
-		<junit printsummary="on" haltonfailure="yes" fork="true">
-			<classpath>
-				<path refid="classpath.test" />
-				<pathelement location="${test.build.dir}" />
-			</classpath>
-			<formatter type="brief" usefile="false" />
-			<batchtest>
-				<fileset dir="${test.src.dir}" includes="**/*Test.java" />
-			</batchtest>
-		</junit>
-	</target>
 	<target name="doc">
  		<javadoc sourcepath="${main.src.dir}" destdir="${main.doc.dir}" />
  	</target>
