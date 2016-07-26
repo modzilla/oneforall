@@ -2,20 +2,22 @@
 <!-- Configuration of the Ant build system to generate a Jar file -->
 <project name="OFA" default="artifact">
 	<description>The one-for-all Java library</description>
-	
+
 	<property name="doc.dir" location="doc" />
 	<property name="source.dir" location="src" />
 	<property name="build.dir" location="bin" />
 	<property name="jar.dir" location="jar" />
-	
+	<property name="report.dir" location="report" />
+
 	<target name="init" depends="clean" description="setup project directories">
-	    <mkdir dir="${build.dir}"/>
-	    <mkdir dir="${doc.dir}"/>
-		<mkdir dir="${jar.dir}"/>
-	  </target>
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${doc.dir}" />
+		<mkdir dir="${jar.dir}" />
+		<mkdir dir="${report.dir}" />
+	</target>
 	<target name="compile" depends="init" description="compile files">
-			<javac  srcdir="${source.dir}" destdir="${build.dir}"/>	
-	</target>	
+		<javac srcdir="${source.dir}" destdir="${build.dir}" />
+	</target>
 	<target name="artifact" description="create Jar file" depends="compile">
 		<property environment="env" />
 		<jar jarfile="${jar.dir}/ofa-full-#n${env.BUILD_NUMBER}.jar" basedir="${build.dir}" includes="**" />
@@ -23,8 +25,26 @@
 	<target name="clean" description="tidy up">
 		<delete dir="${doc.dir}" />
 		<delete dir="${build.dir}" />
+		<delete dir="${report.dir}" />
 	</target>
-	  <target name="doc" depends="compile" description="generate documentation">
-	    <javadoc sourcepath="${source.dir}" destdir="${doc.dir}"/>
-	  </target>
+	<target name="junit" depends="compile">
+		<junit printsummary="yes" haltonfailure="no">
+			
+			<classpath location="lib/junit.jar" />
+			<classpath location="lib/org.hamcrest.core.jar" />
+			
+			<classpath refid="test.path" />
+			<classpath location="${source.dir}" />
+			<formatter type="xml" />
+			<formatter type="plain" />
+			<batchtest fork="yes" todir="${report.dir}">
+				<fileset dir="${source.dir}">
+					<include name="**/*Test*.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+	<target name="doc" depends="compile" description="generate documentation">
+		<javadoc sourcepath="${source.dir}" destdir="${doc.dir}" />
+	</target>
 </project>
