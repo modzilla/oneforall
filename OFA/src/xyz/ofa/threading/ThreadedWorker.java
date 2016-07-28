@@ -7,10 +7,16 @@ public abstract class ThreadedWorker<T, K> implements Runnable {
 	protected Thread thread = new Thread(this);
 
 	protected T data;
+	protected long startTime;
+	protected long executionTime;
+	protected boolean gaveCallback = false;
 	private List<WorkerCallback<K>> callbacks = new ArrayList<>();
 
 	public void startWorker() {
+		thread.setName("worker-" + this.thread.hashCode());
+		gaveCallback = false;
 		thread.start();
+		startTime = System.currentTimeMillis();
 	}
 
 	public void interruptWorker() {
@@ -34,9 +40,20 @@ public abstract class ThreadedWorker<T, K> implements Runnable {
 	}
 
 	public void invokeCallback(K data) {
+		executionTime = System.currentTimeMillis() - startTime;
+		gaveCallback = true;
 		for (WorkerCallback<K> cb : callbacks) {
 			cb.workComplete(data);
 		}
+	}
+	public long getElapsedTime(){
+		return System.currentTimeMillis() - startTime;
+	}
+	public long getExecutionTime() {
+		if (gaveCallback)
+			return executionTime;
+		else
+			return -1;
 	}
 
 	public void addInputData(T data) {
