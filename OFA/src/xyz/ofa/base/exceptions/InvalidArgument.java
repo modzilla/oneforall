@@ -1,4 +1,4 @@
-package xyz.ofa.error;
+package xyz.ofa.base.exceptions;
 
 public class InvalidArgument extends Exception {
 

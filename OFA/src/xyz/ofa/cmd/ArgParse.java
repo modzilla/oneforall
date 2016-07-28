@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import xyz.ofa.error.DuplicateFlagsException;
-import xyz.ofa.error.InvalidArgument;
+import xyz.ofa.base.exceptions.DuplicateFlagsException;
+import xyz.ofa.base.exceptions.InvalidArgument;
 
 public class ArgParse {
 	private List<DashFlag> registered;

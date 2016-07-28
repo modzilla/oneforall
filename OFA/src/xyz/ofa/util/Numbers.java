@@ -2,7 +2,7 @@ package xyz.ofa.util;
 
 import java.nio.ByteBuffer;
 
-import xyz.ofa.error.NotEnoughBytesException;
+import xyz.ofa.base.exceptions.NotEnoughBytesException;
 
 public abstract class Numbers {
 	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();

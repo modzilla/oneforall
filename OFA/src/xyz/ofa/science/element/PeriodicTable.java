@@ -15,7 +15,8 @@ import static xyz.ofa.science.element.ElementType.TransitionMetal;
 import java.util.LinkedList;
 import java.util.List;
 
-import xyz.ofa.error.NoSuchElementException;
+import xyz.ofa.base.Util;
+import xyz.ofa.base.exceptions.NoSuchElementException;
 /**
  * @author Kenny Kropp
  *	A PeriodicTable containing all the Elements
@@ -181,9 +182,9 @@ public class PeriodicTable {
 	 * @throws NoSuchElementException
 	 *             Thrown if the Element doesn't exist
 	 */
-	public Element getElementByNumber(int number) throws NoSuchElementException {
+	public Element getElementByNumber(int number) {
 		if (number > elements.size())
-			throw new NoSuchElementException(number);
+			Util.sneakyThrow(new NoSuchElementException(number));
 		return elements.get(number);
 	}
 
@@ -197,13 +198,14 @@ public class PeriodicTable {
 	 *             The provided Name is not an Element (check spelling, see
 	 *             {@link PeriodicTable#ELEMENT_NAMES})
 	 */
-	public static int atomicNumberForName(String name) throws NoSuchElementException {
+	public static int atomicNumberForName(String name) {
 		for (int i = 0; i < ELEMENT_NAMES.length; i++) {
 			if (ELEMENT_NAMES[i].equalsIgnoreCase(name)) {
 				return i;
 			}
 		}
-		throw new NoSuchElementException(name);
+		Util.sneakyThrow(new NoSuchElementException(name));
+		return -1;		
 	}
 
 	/**
@@ -215,9 +217,9 @@ public class PeriodicTable {
 	 * @throws NoSuchElementException
 	 *             Thrown if the Element does not exist
 	 */
-	public static ElementType typeForAtomicNumber(int number) throws NoSuchElementException {
+	public static ElementType typeForAtomicNumber(int number){
 		if (number < 0 || number >= ELEMENT_NAMES.length)
-			throw new NoSuchElementException(number);
+			Util.sneakyThrow(new NoSuchElementException(number));
 		return ELEMENT_TYPES[number];
 	}
 
@@ -231,13 +233,14 @@ public class PeriodicTable {
 	 *             Thrown if no Element matching the given Symbol has been found
 	 *             (see {@link PeriodicTable#ELEMENT_SYMBOLS}
 	 */
-	public static int atomicNumberForSymbol(String symbol) throws NoSuchElementException {
+	public static int atomicNumberForSymbol(String symbol) {
 		for (int i = 0; i < ELEMENT_SYMBOLS.length; i++) {
 			if (ELEMENT_SYMBOLS[i].equalsIgnoreCase(symbol)) {
 				return i;
 			}
 		}
-		throw new NoSuchElementException(symbol);
+		Util.sneakyThrow(new NoSuchElementException(symbol));
+		return -1;
 	}
 
 	/**
@@ -249,9 +252,9 @@ public class PeriodicTable {
 	 * @throws NoSuchElementException
 	 *             Thrown if no Element with the Atomic Number exists
 	 */
-	public static String nameForAtomicNumber(int number) throws NoSuchElementException {
+	public static String nameForAtomicNumber(int number) {
 		if (number < 0 || number >= ELEMENT_NAMES.length)
-			throw new NoSuchElementException(number);
+			Util.sneakyThrow(new NoSuchElementException(number));
 		return ELEMENT_NAMES[number];
 	}
 
@@ -264,9 +267,9 @@ public class PeriodicTable {
 	 * @throws NoSuchElementException
 	 *             Thrown if no Element with the Atomic Number exists
 	 */
-	public static String symbolForAtomicNumber(int number) throws NoSuchElementException {
+	public static String symbolForAtomicNumber(int number) {
 		if (number < 0 || number >= ELEMENT_NAMES.length)
-			throw new NoSuchElementException(number);
+			Util.sneakyThrow(new NoSuchElementException(number));
 		return ELEMENT_SYMBOLS[number];
 	}
 }

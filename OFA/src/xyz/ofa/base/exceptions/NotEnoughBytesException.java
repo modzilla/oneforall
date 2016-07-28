@@ -1,4 +1,4 @@
-package xyz.ofa.error;
+package xyz.ofa.base.exceptions;
 
 public class NotEnoughBytesException extends Exception {
 	public NotEnoughBytesException(int minBytes){

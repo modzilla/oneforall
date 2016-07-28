@@ -1,6 +1,6 @@
 package xyz.ofa.cmd;
 
-import xyz.ofa.error.InvalidArgument;
+import xyz.ofa.base.exceptions.InvalidArgument;
 
 public class NonFlag extends Flag{
 	private String match;
