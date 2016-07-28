@@ -21,13 +21,13 @@ public enum VolumeUnit {
 	
 	Minim(System.Imperial,0.00376),
 	USFluidDram(System.Imperial,0.2256),
-	Teaspoon(System.Imperial,0.3008),
-	Tablespoon(System.Imperial,0.9023),
+	Teaspoon(System.Imperial,0.300781),
+	Tablespoon(System.Imperial,0.902344),
 	USFluidOunce(System.Imperial,1.805),
 	USShot(System.Imperial,2.7069),          //FIX
 	USGill(System.Imperial,7.219),
-	USCup(System.Imperial,14.44),
-	USPint(System.Imperial,28.88),
+	USCup(System.Imperial,14.6457),
+	USPint(System.Imperial,28.875),
 	USQuart(System.Imperial,57.75),
 	USGallon(System.Imperial,231),
 	Barrel(System.Imperial,7277),
@@ -97,7 +97,7 @@ public enum VolumeUnit {
      * @return Output in in3
      */
     public static float cubicMeterToCubicInch(float val){
-    	return val * 61024f;
+    	return val * 61023.74409f;
     }
     /**
      * Cubic meter to Cubic inch Conversion
@@ -105,7 +105,7 @@ public enum VolumeUnit {
      * @return Output in in3
      */
     public static double cubicMeterToCubicInch(double val){
-    	return val * 61024;
+    	return val * 61023.74409;
     }
     /**
      * Cubic inch to Cubic meter Conversion
@@ -113,7 +113,7 @@ public enum VolumeUnit {
      * @return Output in m3
      */
     public static float cubicInchToCubicMeter(float val){
-    	return val / 61024f;
+    	return val / 61023.74409f;
     }
     /**
      * Cubic inch to Cubic meter Conversion
@@ -121,7 +121,7 @@ public enum VolumeUnit {
      * @return Output in m3
      */
     public static double cubicInchToCubicMeter(double val){
-    	return val / 61024;
+    	return val / 61023.74409;
     }
     
 	public enum System{
