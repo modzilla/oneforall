@@ -16,11 +16,28 @@ public enum LengthUnit {
 	Megameter (System.Metric,10e6),
 	Gigameter (System.Metric,10e9),
 	
+	//Standard	
 	Thou (System.Imperial,10e-3),
+	Point(System.Imperial,1/72),
+	Pica (System.Imperial,1/6),
 	Inch (System.Imperial,1),			//Standard
 	Foot (System.Imperial,12),
 	Yard (System.Imperial,36),
-	Mile (System.Imperial,63360);
+	Mile (System.Imperial,63360),
+	
+	//Survey	
+	Link(System.Imperial,7.92),
+	Rod(System.Imperial,198),
+	Chain(System.Imperial,792),
+	Furlong(System.Imperial,7920),
+	League(System.Imperial,190080),
+	
+	//Nautical
+	USFathom(System.Imperial,72),
+	USCable(System.Imperial,8640),
+	UKCable(System.Imperial,7296),
+	NauticalMile(System.Imperial,72913),	
+	;
 	
 	private System system;
 	private double refToStandard;
